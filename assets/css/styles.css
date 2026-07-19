@@ -1442,7 +1442,7 @@ section {
 }
 
 /* ========================================
-   Contact Form Section
+   Contact Form Section - Multi-Step
    ======================================== */
 
 .contact-form {
@@ -1457,6 +1457,220 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Progress Indicator */
+.form-progress {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-2xl);
+  padding: 0 var(--spacing-md);
+  position: relative;
+}
+
+.form-progress::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.form-progress__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 120px;
+}
+
+.form-progress__number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.form-progress__label {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-align: center;
+  transition: color var(--transition-speed) var(--transition-easing);
+}
+
+.form-progress__step.active .form-progress__number {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.form-progress__step.active .form-progress__label {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.form-progress__step.completed .form-progress__number {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.form-progress__step.completed .form-progress__number::after {
+  content: '✓';
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .form-progress__label {
+    font-size: 0.75rem;
+  }
+
+  .form-progress__number {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* Multi-Step Form */
+.form--multistep {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--color-background-soft);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.form__step {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.form__step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form__step-title {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* Form Review */
+.form__review-intro {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.9375rem;
+}
+
+.form__review {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form__review-section {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form__review-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.form__review-section h4 {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form__review-item {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.form__review-item strong {
+  color: var(--color-text);
+  min-width: 140px;
+}
+
+.form__review-item span {
+  color: var(--color-muted);
+}
+
+.form__review-empty {
+  color: var(--color-muted);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+/* Navigation Buttons */
+.form__navigation {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  justify-content: space-between;
+}
+
+.form__navigation .btn {
+  flex: 1;
+  max-width: 200px;
+}
+
+.form__navigation #submitBtn {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .form__navigation {
+    flex-direction: column;
+  }
+
+  .form__navigation .btn {
+    max-width: 100%;
+  }
+}
+
+/* Existing form styles */
 
 .form {
   max-width: 800px;

@@ -443,64 +443,201 @@
             <div class="container">
                 <div class="contact-form__header">
                     <h2 class="section-title" data-i18n="contactFormTitle">¿Tienes alguna consulta?</h2>
-                    <p class="section-description" data-i18n="contactFormDescription">Envíanos tus datos y cuéntanos cómo podemos ayudarte.</p>
+                    <p class="section-description" data-i18n="contactFormDescription">Completa el formulario y nos pondremos en contacto contigo por WhatsApp.</p>
                 </div>
 
-                <form class="form" id="contactForm" novalidate>
-                    <div class="form__row">
+                <!-- Progress Indicator -->
+                <div class="form-progress">
+                    <div class="form-progress__step active" data-step="1">
+                        <div class="form-progress__number">1</div>
+                        <span class="form-progress__label" data-i18n="step1Label">Tus datos</span>
+                    </div>
+                    <div class="form-progress__step" data-step="2">
+                        <div class="form-progress__number">2</div>
+                        <span class="form-progress__label" data-i18n="step2Label">Tu mascota</span>
+                    </div>
+                    <div class="form-progress__step" data-step="3">
+                        <div class="form-progress__number">3</div>
+                        <span class="form-progress__label" data-i18n="step3Label">Motivo</span>
+                    </div>
+                    <div class="form-progress__step" data-step="4">
+                        <div class="form-progress__number">4</div>
+                        <span class="form-progress__label" data-i18n="step4Label">Confirmación</span>
+                    </div>
+                </div>
+
+                <form class="form form--multistep" id="contactForm" novalidate>
+
+                    <!-- Step 1: Contact Information -->
+                    <div class="form__step active" data-step="1">
+                        <h3 class="form__step-title" data-i18n="step1Title">Información de contacto</h3>
+
                         <div class="form__group">
-                            <label for="contactName" class="form__label" data-i18n="formName">Nombre</label>
-                            <input type="text" id="contactName" name="name" class="form__input" required>
+                            <label for="contactName" class="form__label" data-i18n="formName">Nombre completo *</label>
+                            <input type="text" id="contactName" name="name" class="form__input" required placeholder="Ej: Juan Pérez">
                             <span class="form__error" id="nameError"></span>
                         </div>
+
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="contactPhone" class="form__label" data-i18n="formPhone">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="contactPhone" name="phone" class="form__input" required placeholder="Ej: 6000-0000">
+                                <span class="form__error" id="phoneError"></span>
+                            </div>
+                            <div class="form__group">
+                                <label for="contactEmail" class="form__label" data-i18n="formEmail">Correo electrónico</label>
+                                <input type="email" id="contactEmail" name="email" class="form__input" placeholder="ejemplo@correo.com">
+                                <span class="form__error" id="emailError"></span>
+                            </div>
+                        </div>
+
                         <div class="form__group">
-                            <label for="contactEmail" class="form__label" data-i18n="formEmail">Correo electrónico</label>
-                            <input type="email" id="contactEmail" name="email" class="form__input" required>
-                            <span class="form__error" id="emailError"></span>
+                            <label for="contactLocation" class="form__label" data-i18n="formLocation">¿Dónde te encuentras?</label>
+                            <input type="text" id="contactLocation" name="location" class="form__input" placeholder="Ej: Betania, Ciudad de Panamá">
                         </div>
                     </div>
 
-                    <div class="form__row">
-                        <div class="form__group">
-                            <label for="contactPhone" class="form__label" data-i18n="formPhone">Teléfono</label>
-                            <input type="tel" id="contactPhone" name="phone" class="form__input">
+                    <!-- Step 2: Pet Information -->
+                    <div class="form__step" data-step="2">
+                        <h3 class="form__step-title" data-i18n="step2Title">Información de tu mascota</h3>
+
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="petName" class="form__label" data-i18n="formPetName">Nombre de la mascota *</label>
+                                <input type="text" id="petName" name="petName" class="form__input" required placeholder="Ej: Max">
+                                <span class="form__error" id="petNameError"></span>
+                            </div>
+                            <div class="form__group">
+                                <label for="petSpecies" class="form__label" data-i18n="formPetSpecies">Especie *</label>
+                                <select id="petSpecies" name="petSpecies" class="form__select" required>
+                                    <option value="">Seleccionar...</option>
+                                    <option value="Perro">Perro</option>
+                                    <option value="Gato">Gato</option>
+                                    <option value="Conejo">Conejo</option>
+                                    <option value="Cobayo">Cobayo / Cuyo</option>
+                                    <option value="Hurón">Hurón</option>
+                                    <option value="Loro">Loro / Ave</option>
+                                    <option value="Erizo">Erizo</option>
+                                    <option value="Hámster">Hámster</option>
+                                    <option value="Tortuga">Tortuga</option>
+                                    <option value="Otra">Otra especie</option>
+                                </select>
+                                <span class="form__error" id="petSpeciesError"></span>
+                            </div>
                         </div>
+
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="petBreed" class="form__label" data-i18n="formPetBreed">Raza (si aplica)</label>
+                                <input type="text" id="petBreed" name="petBreed" class="form__input" placeholder="Ej: Labrador, Persa, Mestizo">
+                            </div>
+                            <div class="form__group">
+                                <label for="petAge" class="form__label" data-i18n="formPetAge">Edad aproximada *</label>
+                                <input type="text" id="petAge" name="petAge" class="form__input" required placeholder="Ej: 2 años, 6 meses">
+                                <span class="form__error" id="petAgeError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="petGender" class="form__label" data-i18n="formPetGender">Sexo</label>
+                                <select id="petGender" name="petGender" class="form__select">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="Macho">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                    <option value="No sé">No sé</option>
+                                </select>
+                            </div>
+                            <div class="form__group">
+                                <label for="petWeight" class="form__label" data-i18n="formPetWeight">Peso aproximado</label>
+                                <input type="text" id="petWeight" name="petWeight" class="form__input" placeholder="Ej: 5 kg, 15 lbs">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Consultation Details -->
+                    <div class="form__step" data-step="3">
+                        <h3 class="form__step-title" data-i18n="step3Title">Motivo de tu consulta</h3>
+
                         <div class="form__group">
-                            <label for="consultType" class="form__label" data-i18n="formConsultType">Tipo de consulta</label>
+                            <label for="consultType" class="form__label" data-i18n="formConsultType">Tipo de servicio *</label>
                             <select id="consultType" name="consultType" class="form__select" required>
-                                <option value="">--</option>
-                                <option value="general" data-i18n="consultType1">Consulta general</option>
-                                <option value="vaccination" data-i18n="consultType2">Vacunación</option>
-                                <option value="laboratory" data-i18n="consultType3">Laboratorio</option>
-                                <option value="surgery" data-i18n="consultType4">Cirugía</option>
-                                <option value="hospitalization" data-i18n="consultType5">Hospitalización</option>
-                                <option value="pharmacy" data-i18n="consultType6">Farmacia</option>
-                                <option value="microchip" data-i18n="consultType7">Microchip</option>
-                                <option value="travel-docs" data-i18n="consultType8">Documentos para viajes</option>
-                                <option value="exotic" data-i18n="consultType9">Mascota no convencional</option>
-                                <option value="other" data-i18n="consultType10">Otra consulta</option>
+                                <option value="">Seleccionar...</option>
+                                <option value="Consulta general" data-i18n="consultType1">Consulta general</option>
+                                <option value="Vacunación" data-i18n="consultType2">Vacunación</option>
+                                <option value="Laboratorio" data-i18n="consultType3">Laboratorio clínico</option>
+                                <option value="Cirugía" data-i18n="consultType4">Cirugía</option>
+                                <option value="Hospitalización" data-i18n="consultType5">Hospitalización</option>
+                                <option value="Farmacia" data-i18n="consultType6">Farmacia</option>
+                                <option value="Microchip" data-i18n="consultType7">Microchip</option>
+                                <option value="Documentos de viaje" data-i18n="consultType8">Documentos para viajes</option>
+                                <option value="Emergencia" data-i18n="consultType11">Emergencia</option>
+                                <option value="Otra consulta" data-i18n="consultType10">Otra consulta</option>
                             </select>
                             <span class="form__error" id="consultTypeError"></span>
                         </div>
+
+                        <div class="form__group">
+                            <label for="symptoms" class="form__label" data-i18n="formSymptoms">Síntomas o motivo de consulta *</label>
+                            <textarea id="symptoms" name="symptoms" class="form__textarea" rows="4" required placeholder="Describe qué le pasa a tu mascota, síntomas, comportamiento, desde cuándo..."></textarea>
+                            <span class="form__error" id="symptomsError"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="urgency" class="form__label" data-i18n="formUrgency">¿Qué tan urgente es? *</label>
+                            <select id="urgency" name="urgency" class="form__select" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="🚨 Emergencia (inmediato)">🚨 Emergencia - Necesito atención inmediata</option>
+                                <option value="⚠️ Urgente (hoy o mañana)">⚠️ Urgente - En los próximos 1-2 días</option>
+                                <option value="📅 Normal (esta semana)">📅 Normal - Esta semana</option>
+                                <option value="📆 Flexible (próximas semanas)">📆 Flexible - Cuando haya disponibilidad</option>
+                            </select>
+                            <span class="form__error" id="urgencyError"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="preferredTime" class="form__label" data-i18n="formPreferredTime">Horario preferido</label>
+                            <select id="preferredTime" name="preferredTime" class="form__select">
+                                <option value="">No tengo preferencia</option>
+                                <option value="Mañana (9:30 AM - 12:00 PM)">Mañana (9:30 AM - 12:00 PM)</option>
+                                <option value="Tarde (12:00 PM - 5:00 PM)">Tarde (12:00 PM - 5:00 PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="additionalInfo" class="form__label" data-i18n="formAdditional">Información adicional</label>
+                            <textarea id="additionalInfo" name="additionalInfo" class="form__textarea" rows="3" placeholder="¿Algo más que debamos saber? (alergias, medicamentos actuales, tratamientos previos...)"></textarea>
+                        </div>
                     </div>
 
-                    <div class="form__group">
-                        <label for="contactMessage" class="form__label" data-i18n="formMessage">Mensaje</label>
-                        <textarea id="contactMessage" name="message" class="form__textarea" rows="5" required></textarea>
-                        <span class="form__error" id="messageError"></span>
+                    <!-- Step 4: Review & Confirm -->
+                    <div class="form__step" data-step="4">
+                        <h3 class="form__step-title" data-i18n="step4Title">Revisa tu información</h3>
+                        <p class="form__review-intro" data-i18n="step4Intro">Por favor verifica que todos los datos sean correctos antes de enviar.</p>
+
+                        <div class="form__review" id="formReview">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+
+                        <div class="form__group form__group--checkbox">
+                            <label class="form__checkbox-label">
+                                <input type="checkbox" id="contactPrivacy" name="privacy" required>
+                                <span data-i18n="formPrivacy">Acepto el uso de mis datos para responder esta consulta y confirmo que la información proporcionada es correcta *</span>
+                            </label>
+                            <span class="form__error" id="privacyError"></span>
+                        </div>
                     </div>
 
-                    <div class="form__group form__group--checkbox">
-                        <label class="form__checkbox-label">
-                            <input type="checkbox" id="contactPrivacy" name="privacy" required>
-                            <span data-i18n="formPrivacy">Acepto el uso de mis datos para responder esta consulta</span>
-                        </label>
-                        <span class="form__error" id="privacyError"></span>
-                    </div>
-
-                    <div class="form__actions">
-                        <button type="submit" class="btn btn--primary btn--large">
-                            <span data-i18n="formSubmit">Enviar consulta</span>
+                    <!-- Navigation Buttons -->
+                    <div class="form__navigation">
+                        <button type="button" class="btn btn--secondary" id="prevBtn" style="display: none;">
+                            <span data-i18n="formPrev">← Anterior</span>
+                        </button>
+                        <button type="button" class="btn btn--primary" id="nextBtn">
+                            <span data-i18n="formNext">Siguiente →</span>
+                        </button>
+                        <button type="submit" class="btn btn--primary btn--large" id="submitBtn" style="display: none;">
+                            <span data-i18n="formSubmit">Enviar por WhatsApp</span>
                         </button>
                     </div>
 

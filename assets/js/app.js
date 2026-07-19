@@ -519,12 +519,22 @@ function initializeFooter() {
   }
 }
 
-// Contact Form
+// Contact Form - Multi-Step
+let currentStep = 1;
+const totalSteps = 4;
+const formData = {};
+
 function initializeContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', handleFormSubmit);
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (nextBtn) nextBtn.addEventListener('click', () => nextStep());
+  if (prevBtn) prevBtn.addEventListener('click', () => prevStep());
+  if (form) form.addEventListener('submit', handleMultiStepFormSubmit);
 
   // Real-time validation
   const inputs = form.querySelectorAll('input, select, textarea');
@@ -536,22 +546,160 @@ function initializeContactForm() {
       }
     });
   });
+
+  showStep(1);
+}
+
+function showStep(step) {
+  const steps = document.querySelectorAll('.form__step');
+  const progressSteps = document.querySelectorAll('.form-progress__step');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Hide all steps
+  steps.forEach(s => s.classList.remove('active'));
+
+  // Show current step
+  const currentStepEl = document.querySelector(`.form__step[data-step="${step}"]`);
+  if (currentStepEl) {
+    currentStepEl.classList.add('active');
+  }
+
+  // Update progress indicator
+  progressSteps.forEach((s, index) => {
+    s.classList.remove('active', 'completed');
+    if (index + 1 < step) {
+      s.classList.add('completed');
+    } else if (index + 1 === step) {
+      s.classList.add('active');
+    }
+  });
+
+  // Update buttons
+  prevBtn.style.display = step === 1 ? 'none' : 'block';
+  nextBtn.style.display = step === totalSteps ? 'none' : 'block';
+  submitBtn.style.display = step === totalSteps ? 'block' : 'none';
+
+  // If step 4, populate review
+  if (step === 4) {
+    populateReview();
+  }
+
+  currentStep = step;
+}
+
+function nextStep() {
+  if (validateCurrentStep()) {
+    collectStepData();
+    if (currentStep < totalSteps) {
+      showStep(currentStep + 1);
+    }
+  }
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    showStep(currentStep - 1);
+  }
+}
+
+function validateCurrentStep() {
+  const currentStepEl = document.querySelector(`.form__step[data-step="${currentStep}"]`);
+  if (!currentStepEl) return false;
+
+  const requiredInputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+  let isValid = true;
+
+  requiredInputs.forEach(input => {
+    if (!validateField(input)) {
+      isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
+function collectStepData() {
+  const currentStepEl = document.querySelector(`.form__step[data-step="${currentStep}"]`);
+  if (!currentStepEl) return;
+
+  const inputs = currentStepEl.querySelectorAll('input, select, textarea');
+  inputs.forEach(input => {
+    if (input.type === 'checkbox') {
+      formData[input.name] = input.checked;
+    } else if (input.value) {
+      formData[input.name] = input.value;
+    }
+  });
+}
+
+function populateReview() {
+  const t = translations[currentLang];
+  const reviewContainer = document.getElementById('formReview');
+  if (!reviewContainer) return;
+
+  const html = `
+    <div class="form__review-section">
+      <h4>👤 ${t.step1Title || 'Información de contacto'}</h4>
+      <div class="form__review-item"><strong>${t.formName || 'Nombre'}:</strong> <span>${formData.name || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formPhone || 'Teléfono'}:</strong> <span>${formData.phone || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formEmail || 'Email'}:</strong> <span>${formData.email || 'No proporcionado'}</span></div>
+      <div class="form__review-item"><strong>${t.formLocation || 'Ubicación'}:</strong> <span>${formData.location || 'No proporcionado'}</span></div>
+    </div>
+
+    <div class="form__review-section">
+      <h4>🐾 ${t.step2Title || 'Información de tu mascota'}</h4>
+      <div class="form__review-item"><strong>${t.formPetName || 'Nombre'}:</strong> <span>${formData.petName || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formPetSpecies || 'Especie'}:</strong> <span>${formData.petSpecies || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formPetBreed || 'Raza'}:</strong> <span>${formData.petBreed || 'No especificado'}</span></div>
+      <div class="form__review-item"><strong>${t.formPetAge || 'Edad'}:</strong> <span>${formData.petAge || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formPetGender || 'Sexo'}:</strong> <span>${formData.petGender || 'No especificado'}</span></div>
+      <div class="form__review-item"><strong>${t.formPetWeight || 'Peso'}:</strong> <span>${formData.petWeight || 'No especificado'}</span></div>
+    </div>
+
+    <div class="form__review-section">
+      <h4>📋 ${t.step3Title || 'Motivo de consulta'}</h4>
+      <div class="form__review-item"><strong>${t.formConsultType || 'Servicio'}:</strong> <span>${formData.consultType || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formUrgency || 'Urgencia'}:</strong> <span>${formData.urgency || '-'}</span></div>
+      <div class="form__review-item"><strong>${t.formPreferredTime || 'Horario'}:</strong> <span>${formData.preferredTime || 'Sin preferencia'}</span></div>
+      <div class="form__review-item" style="display: block; margin-top: 0.75rem;">
+        <strong>${t.formSymptoms || 'Síntomas'}:</strong><br>
+        <span style="margin-left: 0; margin-top: 0.5rem; display: block;">${formData.symptoms || '-'}</span>
+      </div>
+      ${formData.additionalInfo ? `
+        <div class="form__review-item" style="display: block; margin-top: 0.75rem;">
+          <strong>${t.formAdditional || 'Info adicional'}:</strong><br>
+          <span style="margin-left: 0; margin-top: 0.5rem; display: block;">${formData.additionalInfo}</span>
+        </div>
+      ` : ''}
+    </div>
+  `;
+
+  reviewContainer.innerHTML = html;
 }
 
 function validateField(field) {
   const t = translations[currentLang];
   let errorMsg = '';
-  const errorSpan = document.getElementById(field.id.replace('contact', '').toLowerCase() + 'Error');
+  const fieldName = field.name || field.id;
+  const errorSpan = document.getElementById(fieldName + 'Error') ||
+                    document.getElementById(fieldName.replace('contact', '').toLowerCase() + 'Error');
 
   if (field.hasAttribute('required') && !field.value.trim()) {
-    errorMsg = t.formRequired;
+    errorMsg = t.formRequired || 'Este campo es obligatorio';
   } else if (field.type === 'email' && field.value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(field.value)) {
-      errorMsg = t.formInvalidEmail;
+      errorMsg = t.formInvalidEmail || 'Email inválido';
+    }
+  } else if (field.type === 'tel' && field.value && field.hasAttribute('required')) {
+    const phoneRegex = /^\d{4}[-\s]?\d{4}$/;
+    if (!phoneRegex.test(field.value.replace(/\s/g, ''))) {
+      errorMsg = 'Formato: 0000-0000';
     }
   } else if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
-    errorMsg = t.formRequired;
+    errorMsg = t.formRequired || 'Debes aceptar para continuar';
   }
 
   if (errorSpan) {
@@ -563,68 +711,86 @@ function validateField(field) {
   return !errorMsg;
 }
 
-function handleFormSubmit(e) {
+function handleMultiStepFormSubmit(e) {
   e.preventDefault();
-  const form = e.target;
-  const t = translations[currentLang];
 
-  // Validate all fields
-  const inputs = form.querySelectorAll('input, select, textarea');
-  let isValid = true;
-  inputs.forEach(input => {
-    if (!validateField(input)) {
-      isValid = false;
-    }
-  });
+  if (!validateCurrentStep()) return;
 
-  if (!isValid) return;
+  collectStepData();
 
-  // Get form data
-  const formData = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    consultType: form.consultType.options[form.consultType.selectedIndex].text,
-    message: form.message.value
-  };
+  // Generate structured WhatsApp message
+  const message = generateWhatsAppMessage();
+  const encodedMessage = encodeURIComponent(message);
 
-  // Since there's no backend, open WhatsApp with structured message
-  const whatsappMessage = `${CONFIG.whatsapp.messages.contactForm}
-
-*Nombre:* ${formData.name}
-*Email:* ${formData.email}
-*Teléfono:* ${formData.phone || 'No proporcionado'}
-*Tipo de consulta:* ${formData.consultType}
-
-*Mensaje:*
-${formData.message}`;
-
-  const encodedMessage = encodeURIComponent(whatsappMessage);
+  // Open WhatsApp
   window.open(`${CONFIG.whatsapp.url}?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
 
   // Show success message
   const messageDiv = document.getElementById('formMessage');
+  const t = translations[currentLang];
   if (messageDiv) {
-    messageDiv.textContent = t.formSuccess;
+    messageDiv.textContent = t.formSuccess || 'Redirigiendo a WhatsApp...';
     messageDiv.className = 'form__message success';
 
-    // Reset form
-    form.reset();
-
-    // Clear validation states
-    inputs.forEach(input => {
-      input.classList.remove('invalid');
-      const errorSpan = document.getElementById(input.id.replace('contact', '').toLowerCase() + 'Error');
-      if (errorSpan) {
-        errorSpan.classList.remove('active');
-      }
-    });
-
-    // Hide message after 5 seconds
     setTimeout(() => {
       messageDiv.className = 'form__message';
-    }, 5000);
+      // Reset form and go back to step 1
+      document.getElementById('contactForm').reset();
+      showStep(1);
+      formData = {};
+    }, 3000);
   }
+}
+
+function generateWhatsAppMessage() {
+  const t = translations[currentLang];
+
+  let message = `🏥 *NUEVA CONSULTA - VETERINARIA DEL SUR*\n\n`;
+
+  // Contact Information
+  message += `👤 *DATOS DEL DUEÑO*\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `• Nombre: ${formData.name}\n`;
+  message += `• Teléfono: ${formData.phone}\n`;
+  if (formData.email) message += `• Email: ${formData.email}\n`;
+  if (formData.location) message += `• Ubicación: ${formData.location}\n`;
+  message += `\n`;
+
+  // Pet Information
+  message += `🐾 *INFORMACIÓN DE LA MASCOTA*\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `• Nombre: ${formData.petName}\n`;
+  message += `• Especie: ${formData.petSpecies}\n`;
+  if (formData.petBreed) message += `• Raza: ${formData.petBreed}\n`;
+  message += `• Edad: ${formData.petAge}\n`;
+  if (formData.petGender) message += `• Sexo: ${formData.petGender}\n`;
+  if (formData.petWeight) message += `• Peso: ${formData.petWeight}\n`;
+  message += `\n`;
+
+  // Consultation Details
+  message += `📋 *MOTIVO DE CONSULTA*\n`;
+  message += `━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `• Servicio: ${formData.consultType}\n`;
+  message += `• Urgencia: ${formData.urgency}\n`;
+  if (formData.preferredTime) message += `• Horario preferido: ${formData.preferredTime}\n`;
+  message += `\n`;
+  message += `📝 *Síntomas/Motivo:*\n${formData.symptoms}\n`;
+
+  if (formData.additionalInfo) {
+    message += `\n💡 *Información adicional:*\n${formData.additionalInfo}\n`;
+  }
+
+  message += `\n━━━━━━━━━━━━━━━━━━━━\n`;
+  message += `📅 Fecha: ${new Date().toLocaleDateString('es-PA', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })}\n`;
+  message += `\n_Enviado desde veterinariadelsur.com.pa_`;
+
+  return message;
 }
 
 // Accessibility
