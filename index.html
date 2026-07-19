@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultas, vacunación, laboratorio, cirugía, hospitalización, microchip y atención de mascotas no convencionales en Don Bosco, Ciudad de Panamá. Reserva tu cita.">
+    <meta name="theme-color" content="#073B78">
+    <meta property="og:title" content="Veterinaria Del Sur Panamá | Clínica veterinaria en Don Bosco">
+    <meta property="og:description" content="Cuidamos su salud como parte de tu familia">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://veterinariadelsur.com.pa">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Veterinaria Del Sur Panamá | Clínica veterinaria en Don Bosco</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "Veterinaria Del Sur Panamá",
+      "telephone": ["+507-381-3338", "+507-381-3339"],
+      "email": "vetsurpty@yahoo.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Airport Commercial Center, Local 6, Avenida Domingo Díaz, Don Bosco",
+        "addressLocality": "Ciudad de Panamá",
+        "addressCountry": "PA"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:30",
+          "closes": "17:00"
+        }
+      ],
+      "url": "https://veterinaria-del-sur.reservio.com/"
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link" data-i18n="skipToContent">Saltar al contenido</a>
+
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="#inicio" class="header__logo" aria-label="Veterinaria Del Sur Panamá — Ir al inicio">
+                <img
+                    src="./assets/images/logo.avif"
+                    width="231"
+                    height="231"
+                    alt="Logo de Veterinaria Del Sur Panamá"
+                    class="logo"
+                >
+                <span class="header__brand-name">
+                    
+                </span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Navegación principal">
+                <ul class="nav__list">
+                    <li><a href="#inicio" class="nav__link" data-i18n="navHome">Inicio</a></li>
+                    <li><a href="#servicios" class="nav__link" data-i18n="navServices">Servicios</a></li>
+                    <li><a href="#nosotros" class="nav__link" data-i18n="navAbout">Nuestra clínica</a></li>
+                    <li><a href="#mascotas-especiales" class="nav__link" data-i18n="navExotic">Mascotas especiales</a></li>
+                    <li><a href="#preguntas" class="nav__link" data-i18n="navFAQ">Preguntas frecuentes</a></li>
+                    <li><a href="#contacto" class="nav__link" data-i18n="navContact">Contacto</a></li>
+                </ul>
+
+                <div class="nav__mobile-actions">
+                    <a href="#" class="btn btn--whatsapp" id="navWhatsApp">
+                        <span data-i18n="whatsapp">WhatsApp</span>
+                    </a>
+                    <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                        <span data-i18n="bookAppointment">Reservar cita</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="header__actions">
+                <div class="lang-switcher" id="langSwitcher" aria-label="Selector de idioma">
+                    <button class="lang-btn lang-btn--current" id="currentLangBtn" aria-expanded="false" aria-controls="langDropdown" aria-haspopup="true">
+                        <span id="currentLangText">ES</span>
+                        <svg class="lang-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 4.5 6 7.5 9 4.5"></polyline></svg>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown" role="menu">
+                        <button class="lang-option" data-lang="es" role="menuitem">Español (ES)</button>
+                        <button class="lang-option" data-lang="en" role="menuitem">English (EN)</button>
+                        <button class="lang-option" data-lang="zh" role="menuitem">中文 (ZH)</button>
+                        <button class="lang-option" data-lang="fr" role="menuitem">Français (FR)</button>
+                    </div>
+                </div>
+
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+
+                <a href="#" class="btn btn--whatsapp btn--desktop-only" id="headerWhatsApp" aria-label="WhatsApp">
+                    <span data-i18n="whatsapp">WhatsApp</span>
+                </a>
+
+                <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--desktop-only">
+                    <span data-i18n="bookAppointment">Reservar cita</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                    <span class="menu-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="inicio">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="hero__tag" data-i18n="heroTag">Clínica veterinaria en Ciudad de Panamá</span>
+                    <h1 class="hero__title" data-i18n="heroTitle">Cuidamos su salud como parte de tu familia</h1>
+                    <p class="hero__description" data-i18n="heroDescription">Brindamos atención veterinaria responsable y cercana para perros, gatos y mascotas no convencionales, con servicios médicos, preventivos y complementarios adaptados a las necesidades de cada paciente.</p>
+
+                    <div class="hero__buttons">
+                        <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">
+                            <span data-i18n="bookAppointment">Reservar cita</span>
+                        </a>
+                        <a href="#" class="btn btn--secondary btn--large" id="heroWhatsApp">
+                            <span data-i18n="whatsappButton">Escribir por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <p class="hero__note" data-i18n="heroNote">Atención mediante cita previa.</p>
+                </div>
+
+                <div class="hero__visual">
+                    <div class="hero__image-main">
+                        <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&h=700&fit=crop" alt="Veterinaria atendiendo a un perro" loading="eager">
+                    </div>
+                    <div class="hero__image-cat">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=250&h=250&fit=crop" alt="Gato" loading="eager">
+                    </div>
+                    <div class="hero__image-rabbit">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=250&h=250&fit=crop" alt="Conejo" loading="eager">
+                    </div>
+                    <div class="hero__card">
+                        <h3 data-i18n="heroCardTitle">Atendemos mascotas no convencionales</h3>
+                        <p data-i18n="heroCardPets">Conejos · Cobayos · Hurones · Aves · Erizos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container benefits__container">
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3 class="benefit__title" data-i18n="benefit1Title">Atención mediante cita</h3>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"></path><path d="m17 7 3-3"></path><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"></path><path d="m9 11 4 4"></path><path d="m5 19-3 3"></path><path d="m14 4 6 6"></path></svg>
+                    </div>
+                    <h3 class="benefit__title" data-i18n="benefit2Title">Medicina preventiva</h3>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"></path><path d="M3 22h18"></path><path d="M14 22a7 7 0 1 0 0-14h-1"></path><path d="M9 14h2"></path><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"></path><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"></path></svg>
+                    </div>
+                    <h3 class="benefit__title" data-i18n="benefit3Title">Apoyo diagnóstico</h3>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"></circle><circle cx="18" cy="8" r="2"></circle><circle cx="20" cy="16" r="2"></circle><circle cx="9" cy="10" r="2"></circle><circle cx="15" cy="14" r="2"></circle><path d="M9 18a4 4 0 0 1 8 0"></path></svg>
+                    </div>
+                    <h3 class="benefit__title" data-i18n="benefit4Title">Mascotas no convencionales</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="servicios">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="servicesTitle">Cuidado veterinario integral</h2>
+                    <p class="section-description" data-i18n="servicesDescription">Servicios médicos, preventivos y complementarios para acompañar la salud de tu mascota en cada etapa.</p>
+                </div>
+
+                <div class="services__grid">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="consultation-pricing">
+            <div class="container">
+                <div class="pricing-card">
+                    <h3 data-i18n="pricingTitle">Consulta general</h3>
+                    <div class="pricing-card__prices">
+                        <div class="price-item">
+                            <span data-i18n="pricingDogsCats">Perros y gatos: desde</span>
+                            <strong>US$20</strong>
+                        </div>
+                        <div class="price-item">
+                            <span data-i18n="pricingExotic">Mascotas no convencionales: desde</span>
+                            <strong>US$25</strong>
+                        </div>
+                    </div>
+                    <p class="pricing-disclaimer" data-i18n="pricingDisclaimer">Precios de referencia sujetos al tipo de consulta y a confirmación.</p>
+                    <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                        <span data-i18n="checkAvailability">Ver disponibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-process">
+            <div class="container">
+                <h2 class="section-title" data-i18n="processTitle">Reserva la consulta de tu mascota</h2>
+                <p class="section-subtitle" data-i18n="processSubtitle">La solicitud se completa mediante nuestra plataforma externa de reservas.</p>
+                <div class="process__steps">
+                    <div class="process-step">
+                        <div class="process-step__number">1</div>
+                        <h3 data-i18n="processStep1">Selecciona el servicio</h3>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step__number">2</div>
+                        <h3 data-i18n="processStep2">Escoge una fecha disponible</h3>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step__number">3</div>
+                        <h3 data-i18n="processStep3">Completa los datos solicitados</h3>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step__number">4</div>
+                        <h3 data-i18n="processStep4">Espera la confirmación de la clínica</h3>
+                    </div>
+                </div>
+                <div class="process__cta">
+                    <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">
+                        <span data-i18n="bookNow">Reservar ahora</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="exotic-pets" id="mascotas-especiales">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="exoticTitle">También cuidamos mascotas no convencionales</h2>
+                    <p class="section-description" data-i18n="exoticDescription">Brindamos atención a especies que requieren conocimientos y cuidados particulares, siempre mediante evaluación y cita previa.</p>
+                </div>
+
+                <div class="exotic-pets__gallery">
+                    <div class="exotic-pet">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=300&h=300&fit=crop"
+                             width="300"
+                             height="300"
+                             alt="Conejo"
+                             loading="lazy"
+                             decoding="async">
+                        <h3 data-i18n="exoticRabbit">Conejo</h3>
+                    </div>
+                    <div class="exotic-pet">
+                        <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=300&h=300&fit=crop"
+                             width="300"
+                             height="300"
+                             alt="Cobayo"
+                             loading="lazy"
+                             decoding="async">
+                        <h3 data-i18n="exoticGuineaPig">Cobayo</h3>
+                    </div>
+                    <div class="exotic-pet">
+                        <!-- TODO: Replace with local ferret image when available -->
+                        <img src="https://images.unsplash.com/photo-1534594403564-6ba4c039ad09?w=300&h=300&fit=crop"
+                             width="300"
+                             height="300"
+                             alt="Hurón"
+                             loading="lazy"
+                             decoding="async"
+                             onerror="this.src='https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=300&h=300&fit=crop'; this.alt='Mascota no convencional';">
+                        <h3 data-i18n="exoticFerret">Hurón</h3>
+                    </div>
+                    <div class="exotic-pet">
+                        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=300&fit=crop"
+                             width="300"
+                             height="300"
+                             alt="Loro"
+                             loading="lazy"
+                             decoding="async">
+                        <h3 data-i18n="exoticParrot">Loro</h3>
+                    </div>
+                    <div class="exotic-pet">
+                        <!-- TODO: Replace with local hedgehog image when available -->
+                        <img src="https://images.unsplash.com/photo-1618606828098-e0c8c048a585?w=300&h=300&fit=crop"
+                             width="300"
+                             height="300"
+                             alt="Erizo"
+                             loading="lazy"
+                             decoding="async"
+                             onerror="this.src='https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=300&h=300&fit=crop'; this.alt='Mascota no convencional';">
+                        <h3 data-i18n="exoticHedgehog">Erizo</h3>
+                    </div>
+                </div>
+
+                <div class="exotic-pets__cta">
+                    <a href="#" class="btn btn--secondary btn--large" id="exoticWhatsApp">
+                        <span data-i18n="consultExotic">Consultar por mi mascota</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="nosotros">
+            <div class="container">
+                <div class="about__header">
+                    <h2 class="section-title" data-i18n="aboutTitle">Medicina veterinaria con responsabilidad y cercanía</h2>
+                    <p class="about__intro" data-i18n="aboutIntro">Nuestro equipo comparte principios de respeto, responsabilidad y compromiso con el bienestar de cada paciente.</p>
+                    <p class="about__description" data-i18n="aboutDescription">Trabajamos para promover el bienestar animal y fortalecer el vínculo entre las personas y sus mascotas mediante servicios veterinarios y complementarios, educación preventiva y una comunicación clara con cada familia.</p>
+                </div>
+
+                <div class="about__content">
+                    <div class="about__image">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600&h=400&fit=crop" alt="Equipo veterinario" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="mission-vision">
+                    <div class="mission-card">
+                        <h3 data-i18n="missionTitle">Nuestra misión</h3>
+                        <p data-i18n="missionDescription">Promover el bienestar animal y fortalecer el vínculo entre las personas y sus mascotas mediante servicios veterinarios y complementarios, educación preventiva y una atención basada en el respeto, la responsabilidad y el compromiso.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h3 data-i18n="visionTitle">Nuestra visión</h3>
+                        <p data-i18n="visionDescription">Impulsar la importancia de la medicina preventiva y la tenencia responsable, educando a la comunidad y promoviendo decisiones informadas para el bienestar de las mascotas y sus familias.</p>
+                    </div>
+                </div>
+
+                <div class="values">
+                    <div class="value-card">
+                        <h3 data-i18n="value1Title">Responsabilidad</h3>
+                        <p data-i18n="value1Description">Utilizamos la medicina preventiva y el criterio profesional para acompañar la salud de las mascotas y orientar a sus familias.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 data-i18n="value2Title">Claridad</h3>
+                        <p data-i18n="value2Description">Explicamos cada proceso con un lenguaje sencillo para facilitar decisiones informadas.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 data-i18n="value3Title">Respeto</h3>
+                        <p data-i18n="value3Description">Tratamos a cada paciente con dignidad y reconocemos que la decisión final sobre su bienestar corresponde a su familia.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 data-i18n="value4Title">Coherencia</h3>
+                        <p data-i18n="value4Description">Procuramos mantener consistencia entre nuestros principios, nuestra comunicación y nuestra manera de actuar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="preguntas">
+            <div class="container">
+                <h2 class="section-title" data-i18n="faqTitle">Preguntas frecuentes</h2>
+
+                <div class="faq__list">
+                    <!-- FAQ items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="location" id="contacto">
+            <div class="container">
+                <h2 class="section-title" data-i18n="locationTitle">Visítanos en Ciudad de Panamá</h2>
+
+                <div class="location__content">
+                    <div class="location__info">
+                        <div class="info-block">
+                            <h3 data-i18n="locationAddress">Dirección</h3>
+                            <p>Airport Commercial Center, Local 6<br>Avenida Domingo Díaz, Don Bosco<br>Ciudad de Panamá, Panamá</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/50766176043" target="_blank" rel="noopener noreferrer">+507 6617-6043</a></p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 data-i18n="locationPhones">Teléfonos</h3>
+                            <p>381-3338 / 381-3339</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 data-i18n="locationEmail">Correo electrónico</h3>
+                            <p><a href="mailto:vetsurpty@yahoo.com">vetsurpty@yahoo.com</a></p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 data-i18n="locationSchedule">Horario</h3>
+                            <p data-i18n="locationHoursWeekdays">Lunes a viernes: 9:30 a. m. – 5:00 p. m.</p>
+                            <p data-i18n="locationHoursSaturday">Sábados: atención sujeta a disponibilidad y confirmación previa.</p>
+                            <p data-i18n="locationHoursSunday">Domingos: cerrado.</p>
+                        </div>
+
+                        <div class="location__buttons">
+                            <a href="https://www.openstreetmap.org/?mlat=9.063102264739511&mlon=-79.4186233802652#map=17/9.063102264739511/-79.4186233802652" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                                <span data-i18n="openMaps">Abrir en OpenStreetMap</span>
+                            </a>
+                            <a href="#" class="btn btn--secondary" id="locationWhatsApp">
+                                <span data-i18n="whatsappButton">Escribir por WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="location__map-wrapper">
+                        <div id="mapPlaceholder" class="map-placeholder">
+                            <div class="map-placeholder__content">
+                                <svg class="map-placeholder__icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <h3>Veterinaria Del Sur Panamá</h3>
+                                <p>Airport Commercial Center, Local 6<br>Avenida Domingo Díaz, Don Bosco</p>
+                                <button class="btn btn--primary" id="loadMapBtn" data-i18n="loadMap">Cargar mapa</button>
+                            </div>
+                        </div>
+                        <div id="map" class="location__map" aria-label="Mapa con la ubicación de Veterinaria Del Sur Panamá"></div>
+                        <noscript>
+                            <div class="map-fallback">
+                                <h3>Ubicación</h3>
+                                <p><strong>Veterinaria Del Sur Panamá</strong></p>
+                                <p>Airport Commercial Center, Local 6<br>Avenida Domingo Díaz, Don Bosco<br>Ciudad de Panamá, Panamá</p>
+                                <p><strong>Coordenadas:</strong> 9.063102, -79.418623</p>
+                                <p><a href="https://www.openstreetmap.org/?mlat=9.063102264739511&mlon=-79.4186233802652#map=17/9.063102264739511/-79.4186233802652" target="_blank" rel="noopener noreferrer">Ver en OpenStreetMap</a></p>
+                                <p><strong>WhatsApp:</strong> <a href="https://wa.me/50766176043">+507 6617-6043</a></p>
+                                <p><strong>Teléfonos:</strong> 381-3338 / 381-3339</p>
+                            </div>
+                        </noscript>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <div class="container">
+                <div class="contact-form__header">
+                    <h2 class="section-title" data-i18n="contactFormTitle">¿Tienes alguna consulta?</h2>
+                    <p class="section-description" data-i18n="contactFormDescription">Envíanos tus datos y cuéntanos cómo podemos ayudarte.</p>
+                </div>
+
+                <form class="form" id="contactForm" novalidate>
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="contactName" class="form__label" data-i18n="formName">Nombre</label>
+                            <input type="text" id="contactName" name="name" class="form__input" required>
+                            <span class="form__error" id="nameError"></span>
+                        </div>
+                        <div class="form__group">
+                            <label for="contactEmail" class="form__label" data-i18n="formEmail">Correo electrónico</label>
+                            <input type="email" id="contactEmail" name="email" class="form__input" required>
+                            <span class="form__error" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="contactPhone" class="form__label" data-i18n="formPhone">Teléfono</label>
+                            <input type="tel" id="contactPhone" name="phone" class="form__input">
+                        </div>
+                        <div class="form__group">
+                            <label for="consultType" class="form__label" data-i18n="formConsultType">Tipo de consulta</label>
+                            <select id="consultType" name="consultType" class="form__select" required>
+                                <option value="">--</option>
+                                <option value="general" data-i18n="consultType1">Consulta general</option>
+                                <option value="vaccination" data-i18n="consultType2">Vacunación</option>
+                                <option value="laboratory" data-i18n="consultType3">Laboratorio</option>
+                                <option value="surgery" data-i18n="consultType4">Cirugía</option>
+                                <option value="hospitalization" data-i18n="consultType5">Hospitalización</option>
+                                <option value="pharmacy" data-i18n="consultType6">Farmacia</option>
+                                <option value="microchip" data-i18n="consultType7">Microchip</option>
+                                <option value="travel-docs" data-i18n="consultType8">Documentos para viajes</option>
+                                <option value="exotic" data-i18n="consultType9">Mascota no convencional</option>
+                                <option value="other" data-i18n="consultType10">Otra consulta</option>
+                            </select>
+                            <span class="form__error" id="consultTypeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="contactMessage" class="form__label" data-i18n="formMessage">Mensaje</label>
+                        <textarea id="contactMessage" name="message" class="form__textarea" rows="5" required></textarea>
+                        <span class="form__error" id="messageError"></span>
+                    </div>
+
+                    <div class="form__group form__group--checkbox">
+                        <label class="form__checkbox-label">
+                            <input type="checkbox" id="contactPrivacy" name="privacy" required>
+                            <span data-i18n="formPrivacy">Acepto el uso de mis datos para responder esta consulta</span>
+                        </label>
+                        <span class="form__error" id="privacyError"></span>
+                    </div>
+
+                    <div class="form__actions">
+                        <button type="submit" class="btn btn--primary btn--large">
+                            <span data-i18n="formSubmit">Enviar consulta</span>
+                        </button>
+                    </div>
+
+                    <div class="form__message" id="formMessage" role="alert" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+
+        <section class="cta-final">
+            <div class="container">
+                <h2 class="cta-final__title" data-i18n="ctaTitle">Tu mascota merece atención profesional y cercana</h2>
+                <p class="cta-final__description" data-i18n="ctaDescription">Reserva una consulta y permite que nuestro equipo te acompañe en el cuidado de su salud.</p>
+
+                <div class="cta-final__buttons">
+                    <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="btn btn--white btn--large">
+                        <span data-i18n="bookConsultation">Reservar consulta</span>
+                    </a>
+                    <a href="#" class="btn btn--outline-white btn--large" id="ctaWhatsApp">
+                        <span data-i18n="whatsappButton">Escribir por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__column">
+                <div class="footer__logo">
+                    <img
+                        src="./assets/images/logo.avif"
+                        width="231"
+                        height="231"
+                        alt="Logo de Veterinaria Del Sur Panamá"
+                    >
+                    <span class="logo-text">Veterinaria Del Sur Panamá</span>
+                </div>
+                <p data-i18n="footerDescription">Servicios veterinarios y complementarios con responsabilidad, claridad y compromiso con el bienestar animal.</p>
+            </div>
+
+            <div class="footer__column">
+                <h4 data-i18n="footerNavigation">Navegación</h4>
+                <ul>
+                    <li><a href="#inicio" data-i18n="navHome">Inicio</a></li>
+                    <li><a href="#servicios" data-i18n="navServices">Servicios</a></li>
+                    <li><a href="#nosotros" data-i18n="navAbout">Nuestra clínica</a></li>
+                    <li><a href="#mascotas-especiales" data-i18n="navExotic">Mascotas especiales</a></li>
+                    <li><a href="#preguntas" data-i18n="navFAQ">Preguntas frecuentes</a></li>
+                    <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__column">
+                <h4 data-i18n="footerServices">Servicios</h4>
+                <ul>
+                    <li><a href="#servicios" data-i18n="service1">Consulta general</a></li>
+                    <li><a href="#servicios" data-i18n="service2">Vacunación y medicina preventiva</a></li>
+                    <li><a href="#servicios" data-i18n="service3">Laboratorio clínico</a></li>
+                    <li><a href="#servicios" data-i18n="service4">Cirugía de tejidos blandos</a></li>
+                    <li><a href="#servicios" data-i18n="service6">Hospitalización</a></li>
+                    <li><a href="#servicios" data-i18n="service7">Farmacia veterinaria</a></li>
+                    <li><a href="#servicios" data-i18n="service8">Microchip de identificación</a></li>
+                    <li><a href="#servicios" data-i18n="service9">Documentos para viajes</a></li>
+                    <li><a href="#servicios" data-i18n="service10">Mascotas no convencionales</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__column">
+                <h4 data-i18n="footerContact">Contacto</h4>
+                <p>Airport Commercial Center, Local 6<br>Avenida Domingo Díaz, Don Bosco<br>Ciudad de Panamá, Panamá</p>
+                <p><strong>Email:</strong> <a href="mailto:vetsurpty@yahoo.com">vetsurpty@yahoo.com</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/50766176043" target="_blank" rel="noopener noreferrer">+507 6617-6043</a></p>
+                <p><strong data-i18n="locationPhones">Teléfonos:</strong> 381-3338 / 381-3339</p>
+                <p><strong data-i18n="locationSchedule">Horario:</strong></p>
+                <p><span data-i18n="locationHoursWeekdays">Lunes a viernes: 9:30 a. m. – 5:00 p. m.</span></p>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__legal">
+                    <p>&copy; <span id="currentYear"></span> Veterinaria Del Sur Panamá. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+                    <div class="footer__links">
+                        <a href="#" data-i18n="privacyPolicy">Aviso de privacidad</a>
+                        <a href="#" data-i18n="termsConditions">Términos de las citas</a>
+                    </div>
+                </div>
+                <div class="footer__signature">
+                    <p><span data-i18n="footerDesigned">Diseñado y desarrollado por</span>
+                    <a href="https://josuethacevedo.online" target="_blank" rel="noopener noreferrer" class="signature-link">JoeCodex</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-bar">
+        <a href="#" class="mobile-bar__btn" id="mobileWhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span data-i18n="whatsapp">WhatsApp</span>
+        </a>
+        <a href="https://veterinaria-del-sur.reservio.com/" target="_blank" rel="noopener noreferrer" class="mobile-bar__btn mobile-bar__btn--primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span data-i18n="bookAppointment">Reservar cita</span>
+        </a>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./assets/js/translations.js" defer></script>
+    <script src="./assets/js/app.js" defer></script>
+</body>
+</html>

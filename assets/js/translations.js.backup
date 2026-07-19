@@ -1,0 +1,496 @@
+// translations.js - Sistema multiidioma para Veterinaria Del Sur
+
+const translations = {
+  es: {
+    // Navigation
+    skipToContent: "Saltar al contenido",
+    navHome: "Inicio",
+    navServices: "Servicios",
+    navAbout: "Nosotros",
+    navExotic: "Mascotas especiales",
+    navFAQ: "Preguntas frecuentes",
+    navContact: "Contacto",
+
+    // Buttons
+    whatsapp: "WhatsApp",
+    bookAppointment: "Reservar cita",
+    whatsappButton: "Escribir por WhatsApp",
+    bookNow: "Reservar ahora",
+    bookConsultation: "Reservar consulta",
+    checkAvailability: "Ver disponibilidad",
+    openMaps: "Abrir en Google Maps",
+    consultExotic: "Consultar por mi mascota",
+
+    // Hero Section
+    heroTag: "Clínica veterinaria en Ciudad de Panamá",
+    heroTitle: "Cuidamos su salud como parte de tu familia",
+    heroDescription: "Servicios médicos veterinarios con responsabilidad, calidad y profesionalismo para perros, gatos y mascotas no convencionales.",
+    heroNote: "Atención mediante cita previa.",
+    heroCardTitle: "Atendemos mascotas no convencionales",
+    heroCardPets: "Conejos · Cobayos · Hurones · Aves · Erizos",
+
+    // Benefits
+    benefit1Title: "Atención mediante cita",
+    benefit2Title: "Medicina preventiva",
+    benefit3Title: "Diagnóstico profesional",
+    benefit4Title: "Mascotas no convencionales",
+
+    // Services
+    servicesTitle: "Cuidado veterinario integral",
+    servicesDescription: "Servicios médicos y preventivos para acompañar a tu mascota en cada etapa.",
+    service1: "Consulta general",
+    service1Desc: "Evaluación médica completa de tu mascota.",
+    service2: "Vacunación",
+    service2Desc: "Protección preventiva contra enfermedades.",
+    service3: "Laboratorio clínico",
+    service3Desc: "Análisis diagnósticos precisos y confiables.",
+    service4: "Cirugía general",
+    service4Desc: "Procedimientos quirúrgicos con equipamiento moderno.",
+    service5: "Ultrasonido",
+    service5Desc: "Diagnóstico por imagen de alta calidad.",
+    service6: "Farmacia veterinaria",
+    service6Desc: "Medicamentos especializados para tu mascota.",
+    service7: "Microchip",
+    service7Desc: "Identificación permanente y segura.",
+    service8: "Mascotas no convencionales",
+    service8Desc: "Atención especializada para especies exóticas.",
+    serviceLink: "Ver servicio",
+
+    // Pricing
+    pricingTitle: "Consulta general",
+    pricingDogsCats: "Perros y gatos: desde",
+    pricingExotic: "Mascotas no convencionales: desde",
+
+    // Process
+    processTitle: "Proceso de reserva",
+    processStep1: "Selecciona el servicio",
+    processStep2: "Escoge una fecha",
+    processStep3: "Confirma la cita",
+
+    // Exotic Pets
+    exoticTitle: "También cuidamos mascotas no convencionales",
+    exoticDescription: "Atención profesional para especies que requieren cuidados especializados.",
+    exoticRabbit: "Conejo",
+    exoticGuineaPig: "Cobayo",
+    exoticFerret: "Hurón",
+    exoticParrot: "Loro",
+    exoticHedgehog: "Erizo",
+
+    // About
+    aboutTitle: "Medicina veterinaria con claridad y responsabilidad",
+    aboutDescription: "Nuestro equipo está comprometido con el bienestar de tu mascota, ofreciendo atención médica de calidad basada en la ética profesional y el respeto hacia cada animal.",
+    value1Title: "Responsabilidad",
+    value1Description: "Actuamos con profesionalismo en cada decisión médica.",
+    value2Title: "Claridad",
+    value2Description: "Comunicamos cada diagnóstico y tratamiento de forma transparente.",
+    value3Title: "Respeto",
+    value3Description: "Tratamos a cada mascota con dignidad y cuidado.",
+    value4Title: "Coherencia",
+    value4Description: "Mantenemos los mismos estándares en cada consulta.",
+
+    // FAQ
+    faqTitle: "Preguntas frecuentes",
+    faq1Q: "¿Necesito reservar antes de asistir?",
+    faq1A: "Sí, trabajamos exclusivamente mediante cita previa para garantizar una atención personalizada y reducir tiempos de espera. Puedes reservar a través de nuestra plataforma en línea o contactándonos por WhatsApp.",
+    faq2Q: "¿Atienden mascotas no convencionales?",
+    faq2A: "Sí, contamos con atención especializada para conejos, cobayos, hurones, aves, erizos y otras especies exóticas. La consulta tiene un costo desde US$25.",
+    faq3Q: "¿Cómo se confirma la cita?",
+    faq3A: "Una vez que completes tu reserva en línea, recibirás un correo electrónico de confirmación con los detalles de tu cita. También puedes verificar tu reserva contactándonos por WhatsApp o teléfono.",
+    faq4Q: "¿Dónde está ubicada la clínica?",
+    faq4A: "Estamos ubicados en Airport Commercial Center, Local 6, Avenida Domingo Díaz, Don Bosco, Ciudad de Panamá. Puedes encontrarnos fácilmente en Google Maps.",
+    faq5Q: "¿Cómo puedo cambiar mi reserva?",
+    faq5A: "Para modificar o cancelar tu cita, puedes acceder a tu reserva a través del enlace enviado en tu correo de confirmación, o contactarnos directamente por WhatsApp o teléfono.",
+
+    // Location
+    locationTitle: "Visítanos en Ciudad de Panamá",
+    locationAddress: "Dirección",
+    locationPhones: "Teléfonos",
+    locationSchedule: "Horario",
+    locationHours: "Lunes a viernes · Atención mediante cita previa.",
+
+    // CTA
+    ctaTitle: "Tu mascota merece atención profesional y cercana",
+    ctaDescription: "Reserva su consulta y permite que nuestro equipo te acompañe en el cuidado de su salud.",
+
+    // Footer
+    footerDescription: "Servicios médicos veterinarios con responsabilidad, calidad y profesionalismo.",
+    footerNavigation: "Navegación",
+    footerServices: "Servicios",
+    footerContact: "Contacto",
+    footerRights: "Todos los derechos reservados.",
+    privacyPolicy: "Aviso de privacidad",
+    termsConditions: "Términos de las citas",
+    footerDesigned: "Diseñado y desarrollado por",
+  },
+
+  en: {
+    // Navigation
+    skipToContent: "Skip to content",
+    navHome: "Home",
+    navServices: "Services",
+    navAbout: "About Us",
+    navExotic: "Exotic Pets",
+    navFAQ: "FAQ",
+    navContact: "Contact",
+
+    // Buttons
+    whatsapp: "WhatsApp",
+    bookAppointment: "Book Appointment",
+    whatsappButton: "Message on WhatsApp",
+    bookNow: "Book Now",
+    bookConsultation: "Book Consultation",
+    checkAvailability: "Check Availability",
+    openMaps: "Open in Google Maps",
+    consultExotic: "Ask About My Pet",
+
+    // Hero Section
+    heroTag: "Veterinary Clinic in Panama City",
+    heroTitle: "We care for their health as part of your family",
+    heroDescription: "Veterinary medical services with responsibility, quality, and professionalism for dogs, cats, and exotic pets.",
+    heroNote: "By appointment only.",
+    heroCardTitle: "We care for exotic pets",
+    heroCardPets: "Rabbits · Guinea Pigs · Ferrets · Birds · Hedgehogs",
+
+    // Benefits
+    benefit1Title: "By Appointment",
+    benefit2Title: "Preventive Medicine",
+    benefit3Title: "Professional Diagnosis",
+    benefit4Title: "Exotic Pets",
+
+    // Services
+    servicesTitle: "Comprehensive Veterinary Care",
+    servicesDescription: "Medical and preventive services to support your pet at every stage.",
+    service1: "General Consultation",
+    service1Desc: "Complete medical evaluation of your pet.",
+    service2: "Vaccination",
+    service2Desc: "Preventive protection against diseases.",
+    service3: "Clinical Laboratory",
+    service3Desc: "Accurate and reliable diagnostic analysis.",
+    service4: "General Surgery",
+    service4Desc: "Surgical procedures with modern equipment.",
+    service5: "Ultrasound",
+    service5Desc: "High-quality diagnostic imaging.",
+    service6: "Veterinary Pharmacy",
+    service6Desc: "Specialized medications for your pet.",
+    service7: "Microchip",
+    service7Desc: "Permanent and secure identification.",
+    service8: "Exotic Pets",
+    service8Desc: "Specialized care for exotic species.",
+    serviceLink: "View service",
+
+    // Pricing
+    pricingTitle: "General Consultation",
+    pricingDogsCats: "Dogs and cats: from",
+    pricingExotic: "Exotic pets: from",
+
+    // Process
+    processTitle: "Booking Process",
+    processStep1: "Select the service",
+    processStep2: "Choose a date",
+    processStep3: "Confirm appointment",
+
+    // Exotic Pets
+    exoticTitle: "We also care for exotic pets",
+    exoticDescription: "Professional care for species requiring specialized attention.",
+    exoticRabbit: "Rabbit",
+    exoticGuineaPig: "Guinea Pig",
+    exoticFerret: "Ferret",
+    exoticParrot: "Parrot",
+    exoticHedgehog: "Hedgehog",
+
+    // About
+    aboutTitle: "Veterinary medicine with clarity and responsibility",
+    aboutDescription: "Our team is committed to your pet's wellbeing, offering quality medical care based on professional ethics and respect for every animal.",
+    value1Title: "Responsibility",
+    value1Description: "We act with professionalism in every medical decision.",
+    value2Title: "Clarity",
+    value2Description: "We communicate every diagnosis and treatment transparently.",
+    value3Title: "Respect",
+    value3Description: "We treat every pet with dignity and care.",
+    value4Title: "Coherence",
+    value4Description: "We maintain the same standards in every consultation.",
+
+    // FAQ
+    faqTitle: "Frequently Asked Questions",
+    faq1Q: "Do I need to book before visiting?",
+    faq1A: "Yes, we work exclusively by appointment to ensure personalized care and reduce waiting times. You can book through our online platform or contact us via WhatsApp.",
+    faq2Q: "Do you treat exotic pets?",
+    faq2A: "Yes, we have specialized care for rabbits, guinea pigs, ferrets, birds, hedgehogs, and other exotic species. Consultations start at US$25.",
+    faq3Q: "How is the appointment confirmed?",
+    faq3A: "Once you complete your online booking, you'll receive a confirmation email with your appointment details. You can also verify your booking by contacting us via WhatsApp or phone.",
+    faq4Q: "Where is the clinic located?",
+    faq4A: "We are located at Airport Commercial Center, Local 6, Avenida Domingo Díaz, Don Bosco, Panama City. You can easily find us on Google Maps.",
+    faq5Q: "How can I change my booking?",
+    faq5A: "To modify or cancel your appointment, you can access your booking through the link sent in your confirmation email, or contact us directly via WhatsApp or phone.",
+
+    // Location
+    locationTitle: "Visit us in Panama City",
+    locationAddress: "Address",
+    locationPhones: "Phones",
+    locationSchedule: "Schedule",
+    locationHours: "Monday to Friday · By appointment only.",
+
+    // CTA
+    ctaTitle: "Your pet deserves professional and caring attention",
+    ctaDescription: "Book their consultation and let our team support you in caring for their health.",
+
+    // Footer
+    footerDescription: "Veterinary medical services with responsibility, quality, and professionalism.",
+    footerNavigation: "Navigation",
+    footerServices: "Services",
+    footerContact: "Contact",
+    footerRights: "All rights reserved.",
+    privacyPolicy: "Privacy Policy",
+    termsConditions: "Appointment Terms",
+    footerDesigned: "Designed and developed by",
+  },
+
+  zh: {
+    // Navigation
+    skipToContent: "跳至内容",
+    navHome: "首页",
+    navServices: "服务",
+    navAbout: "关于我们",
+    navExotic: "特殊宠物",
+    navFAQ: "常见问题",
+    navContact: "联系方式",
+
+    // Buttons
+    whatsapp: "WhatsApp",
+    bookAppointment: "预约",
+    whatsappButton: "通过WhatsApp联系",
+    bookNow: "立即预约",
+    bookConsultation: "预约咨询",
+    checkAvailability: "查看可用时间",
+    openMaps: "在谷歌地图中打开",
+    consultExotic: "咨询我的宠物",
+
+    // Hero Section
+    heroTag: "巴拿马城兽医诊所",
+    heroTitle: "像家人一样关爱它们的健康",
+    heroDescription: "为狗、猫和特殊宠物提供负责任、高质量和专业的兽医医疗服务。",
+    heroNote: "仅限预约就诊。",
+    heroCardTitle: "我们照顾特殊宠物",
+    heroCardPets: "兔子 · 豚鼠 · 雪貂 · 鸟类 · 刺猬",
+
+    // Benefits
+    benefit1Title: "预约就诊",
+    benefit2Title: "预防医学",
+    benefit3Title: "专业诊断",
+    benefit4Title: "特殊宠物",
+
+    // Services
+    servicesTitle: "全面的兽医护理",
+    servicesDescription: "为您的宠物在每个阶段提供医疗和预防服务。",
+    service1: "常规咨询",
+    service1Desc: "为您的宠物进行全面的医疗评估。",
+    service2: "疫苗接种",
+    service2Desc: "预防疾病的保护措施。",
+    service3: "临床实验室",
+    service3Desc: "准确可靠的诊断分析。",
+    service4: "普通外科",
+    service4Desc: "使用现代设备进行外科手术。",
+    service5: "超声检查",
+    service5Desc: "高质量的影像诊断。",
+    service6: "兽医药房",
+    service6Desc: "为您的宠物提供专业药品。",
+    service7: "微芯片",
+    service7Desc: "永久且安全的身份识别。",
+    service8: "特殊宠物",
+    service8Desc: "为特殊物种提供专业护理。",
+    serviceLink: "查看服务",
+
+    // Pricing
+    pricingTitle: "常规咨询",
+    pricingDogsCats: "狗和猫：起价",
+    pricingExotic: "特殊宠物：起价",
+
+    // Process
+    processTitle: "预约流程",
+    processStep1: "选择服务",
+    processStep2: "选择日期",
+    processStep3: "确认预约",
+
+    // Exotic Pets
+    exoticTitle: "我们也照顾特殊宠物",
+    exoticDescription: "为需要专业护理的物种提供专业服务。",
+    exoticRabbit: "兔子",
+    exoticGuineaPig: "豚鼠",
+    exoticFerret: "雪貂",
+    exoticParrot: "鹦鹉",
+    exoticHedgehog: "刺猬",
+
+    // About
+    aboutTitle: "清晰且负责任的兽医服务",
+    aboutDescription: "我们的团队致力于您宠物的福祉，基于专业道德和对每只动物的尊重提供优质医疗服务。",
+    value1Title: "责任感",
+    value1Description: "在每个医疗决策中表现出专业精神。",
+    value2Title: "清晰度",
+    value2Description: "透明地沟通每个诊断和治疗方案。",
+    value3Title: "尊重",
+    value3Description: "以尊严和关怀对待每只宠物。",
+    value4Title: "一致性",
+    value4Description: "在每次咨询中保持相同的标准。",
+
+    // FAQ
+    faqTitle: "常见问题",
+    faq1Q: "我需要在就诊前预约吗？",
+    faq1A: "是的，我们仅接受预约就诊，以确保提供个性化护理并减少等待时间。您可以通过我们的在线平台预约或通过WhatsApp联系我们。",
+    faq2Q: "你们治疗特殊宠物吗？",
+    faq2A: "是的，我们为兔子、豚鼠、雪貂、鸟类、刺猬和其他特殊物种提供专业护理。咨询费用起价为25美元。",
+    faq3Q: "预约如何确认？",
+    faq3A: "完成在线预约后，您将收到一封确认电子邮件，其中包含您的预约详情。您也可以通过WhatsApp或电话联系我们来验证预约。",
+    faq4Q: "诊所位于哪里？",
+    faq4A: "我们位于巴拿马城Don Bosco区Domingo Díaz大道Airport Commercial Center 6号店铺。您可以在谷歌地图上轻松找到我们。",
+    faq5Q: "如何更改我的预约？",
+    faq5A: "要修改或取消您的预约，您可以通过确认电子邮件中发送的链接访问您的预约，或直接通过WhatsApp或电话联系我们。",
+
+    // Location
+    locationTitle: "欢迎访问巴拿马城诊所",
+    locationAddress: "地址",
+    locationPhones: "电话",
+    locationSchedule: "时间表",
+    locationHours: "周一至周五 · 仅限预约",
+
+    // CTA
+    ctaTitle: "您的宠物值得专业而贴心的关注",
+    ctaDescription: "预约咨询，让我们的团队在照顾它们的健康方面为您提供支持。",
+
+    // Footer
+    footerDescription: "负责任、高质量和专业的兽医医疗服务。",
+    footerNavigation: "导航",
+    footerServices: "服务",
+    footerContact: "联系方式",
+    footerRights: "版权所有。",
+    privacyPolicy: "隐私政策",
+    termsConditions: "预约条款",
+    footerDesigned: "设计和开发：",
+  },
+
+  fr: {
+    // Navigation
+    skipToContent: "Aller au contenu",
+    navHome: "Accueil",
+    navServices: "Services",
+    navAbout: "À propos",
+    navExotic: "Animaux exotiques",
+    navFAQ: "FAQ",
+    navContact: "Contact",
+
+    // Buttons
+    whatsapp: "WhatsApp",
+    bookAppointment: "Prendre rendez-vous",
+    whatsappButton: "Écrire sur WhatsApp",
+    bookNow: "Réserver maintenant",
+    bookConsultation: "Réserver une consultation",
+    checkAvailability: "Voir les disponibilités",
+    openMaps: "Ouvrir dans Google Maps",
+    consultExotic: "Consulter pour mon animal",
+
+    // Hero Section
+    heroTag: "Clinique vétérinaire à Panama City",
+    heroTitle: "Nous prenons soin de leur santé comme de votre famille",
+    heroDescription: "Services médicaux vétérinaires avec responsabilité, qualité et professionnalisme pour chiens, chats et animaux exotiques.",
+    heroNote: "Sur rendez-vous uniquement.",
+    heroCardTitle: "Nous soignons les animaux exotiques",
+    heroCardPets: "Lapins · Cobayes · Furets · Oiseaux · Hérissons",
+
+    // Benefits
+    benefit1Title: "Sur rendez-vous",
+    benefit2Title: "Médecine préventive",
+    benefit3Title: "Diagnostic professionnel",
+    benefit4Title: "Animaux exotiques",
+
+    // Services
+    servicesTitle: "Soins vétérinaires complets",
+    servicesDescription: "Services médicaux et préventifs pour accompagner votre animal à chaque étape.",
+    service1: "Consultation générale",
+    service1Desc: "Évaluation médicale complète de votre animal.",
+    service2: "Vaccination",
+    service2Desc: "Protection préventive contre les maladies.",
+    service3: "Laboratoire clinique",
+    service3Desc: "Analyses diagnostiques précises et fiables.",
+    service4: "Chirurgie générale",
+    service4Desc: "Procédures chirurgicales avec équipement moderne.",
+    service5: "Échographie",
+    service5Desc: "Imagerie diagnostique de haute qualité.",
+    service6: "Pharmacie vétérinaire",
+    service6Desc: "Médicaments spécialisés pour votre animal.",
+    service7: "Puce électronique",
+    service7Desc: "Identification permanente et sécurisée.",
+    service8: "Animaux exotiques",
+    service8Desc: "Soins spécialisés pour les espèces exotiques.",
+    serviceLink: "Voir le service",
+
+    // Pricing
+    pricingTitle: "Consultation générale",
+    pricingDogsCats: "Chiens et chats : à partir de",
+    pricingExotic: "Animaux exotiques : à partir de",
+
+    // Process
+    processTitle: "Processus de réservation",
+    processStep1: "Sélectionnez le service",
+    processStep2: "Choisissez une date",
+    processStep3: "Confirmez le rendez-vous",
+
+    // Exotic Pets
+    exoticTitle: "Nous soignons aussi les animaux exotiques",
+    exoticDescription: "Soins professionnels pour les espèces nécessitant une attention spécialisée.",
+    exoticRabbit: "Lapin",
+    exoticGuineaPig: "Cobaye",
+    exoticFerret: "Furet",
+    exoticParrot: "Perroquet",
+    exoticHedgehog: "Hérisson",
+
+    // About
+    aboutTitle: "Médecine vétérinaire avec clarté et responsabilité",
+    aboutDescription: "Notre équipe s'engage pour le bien-être de votre animal, offrant des soins médicaux de qualité basés sur l'éthique professionnelle et le respect de chaque animal.",
+    value1Title: "Responsabilité",
+    value1Description: "Nous agissons avec professionnalisme dans chaque décision médicale.",
+    value2Title: "Clarté",
+    value2Description: "Nous communiquons chaque diagnostic et traitement de manière transparente.",
+    value3Title: "Respect",
+    value3Description: "Nous traitons chaque animal avec dignité et soin.",
+    value4Title: "Cohérence",
+    value4Description: "Nous maintenons les mêmes standards à chaque consultation.",
+
+    // FAQ
+    faqTitle: "Questions fréquentes",
+    faq1Q: "Dois-je réserver avant de venir ?",
+    faq1A: "Oui, nous travaillons exclusivement sur rendez-vous pour garantir des soins personnalisés et réduire les temps d'attente. Vous pouvez réserver via notre plateforme en ligne ou nous contacter par WhatsApp.",
+    faq2Q: "Soignez-vous les animaux exotiques ?",
+    faq2A: "Oui, nous avons des soins spécialisés pour les lapins, cobayes, furets, oiseaux, hérissons et autres espèces exotiques. La consultation coûte à partir de 25 USD.",
+    faq3Q: "Comment le rendez-vous est-il confirmé ?",
+    faq3A: "Une fois votre réservation en ligne terminée, vous recevrez un e-mail de confirmation avec les détails de votre rendez-vous. Vous pouvez également vérifier votre réservation en nous contactant par WhatsApp ou téléphone.",
+    faq4Q: "Où se trouve la clinique ?",
+    faq4A: "Nous sommes situés à Airport Commercial Center, Local 6, Avenida Domingo Díaz, Don Bosco, Panama City. Vous pouvez facilement nous trouver sur Google Maps.",
+    faq5Q: "Comment puis-je modifier ma réservation ?",
+    faq5A: "Pour modifier ou annuler votre rendez-vous, vous pouvez accéder à votre réservation via le lien envoyé dans votre e-mail de confirmation, ou nous contacter directement par WhatsApp ou téléphone.",
+
+    // Location
+    locationTitle: "Visitez-nous à Panama City",
+    locationAddress: "Adresse",
+    locationPhones: "Téléphones",
+    locationSchedule: "Horaires",
+    locationHours: "Lundi au vendredi · Sur rendez-vous uniquement.",
+
+    // CTA
+    ctaTitle: "Votre animal mérite une attention professionnelle et attentionnée",
+    ctaDescription: "Réservez sa consultation et permettez à notre équipe de vous accompagner dans le soin de sa santé.",
+
+    // Footer
+    footerDescription: "Services médicaux vétérinaires avec responsabilité, qualité et professionnalisme.",
+    footerNavigation: "Navigation",
+    footerServices: "Services",
+    footerContact: "Contact",
+    footerRights: "Tous droits réservés.",
+    privacyPolicy: "Politique de confidentialité",
+    termsConditions: "Conditions des rendez-vous",
+    footerDesigned: "Conçu et développé par",
+  }
+};
+
+// Export para uso en app.js
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = translations;
+}
