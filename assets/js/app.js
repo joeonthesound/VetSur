@@ -245,14 +245,12 @@ function updateMetaTags(lang) {
 // Theme Management
 function initializeTheme() {
   const savedTheme = localStorage.getItem('vetSurTheme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  // Always default to light theme unless user explicitly saved a preference
   if (savedTheme) {
     currentTheme = savedTheme;
-  } else if (prefersDark) {
-    currentTheme = 'dark';
   } else {
-    currentTheme = 'light';
+    currentTheme = 'light'; // Force light theme by default
   }
 
   setTheme(currentTheme);
@@ -263,10 +261,11 @@ function initializeTheme() {
     themeToggle.addEventListener('click', toggleTheme);
   }
 
-  // Listen for system theme changes
+  // Listen for system theme changes only if user hasn't set a preference
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('vetSurTheme')) {
-      setTheme(e.matches ? 'dark' : 'light');
+      // Still default to light even if system changes
+      setTheme('light');
     }
   });
 }
